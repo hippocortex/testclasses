@@ -81,7 +81,7 @@ function connect(){
      provider.setCredentials(AuthScope.ANY, credentials);
      HttpClient client = HttpClientBuilder.create().setDefaultCredentialsProvider(provider).build();
      
-     HttpResponse response3 = client.execute(new HttpGet("https://anais2.accor.com/aslint/"));
+     HttpResponse response3 = client.execute(new HttpGet("https://anais2.accor.com/aslint/servicesLayer/users"));
      int statusCode = response3.getStatusLine().getStatusCode();
      
      
