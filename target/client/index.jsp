@@ -1,5 +1,17 @@
-<%@page import="org.apache.http.client.*" %>
-<%@page import="org.apache.http.impl.*" %>
+<%@page import=" org.apache.http.HttpHost"%>
+<%@page import=" org.apache.http.auth.AuthScope"%>
+<%@page import=" org.apache.http.auth.UsernamePasswordCredentials"%>
+<%@page import=" org.apache.http.client.AuthCache"%>
+<%@page import=" org.apache.http.client.CredentialsProvider"%>
+<%@page import=" org.apache.http.client.methods.CloseableHttpResponse"%>
+<%@page import=" org.apache.http.client.methods.HttpGet"%>
+<%@page import=" org.apache.http.client.protocol.HttpClientContext"%>
+<%@page import=" org.apache.http.impl.auth.BasicScheme"%>
+<%@page import=" org.apache.http.impl.client.BasicAuthCache"%>
+<%@page import=" org.apache.http.impl.client.BasicCredentialsProvider"%>
+<%@page import=" org.apache.http.impl.client.CloseableHttpClient"%>
+<%@page import=" org.apache.http.impl.client.HttpClients"%>
+<%@page import=" org.apache.http.util.EntityUtils"%>
 <%@page import="java.io.IOException" %>
 <head>
 <script type="text/javascript" >
@@ -24,7 +36,7 @@ function connect(){
      credsProvider.setCredentials(
              new AuthScope(target.getHostName(), target.getPort()),
              new UsernamePasswordCredentials("aslpocint", "U7U1i#ujUsuZo3yTaQA7o5et"));
-     CloseableHttpClient httpclient = HttpClients.custom()
+     CloseableHttpClient  httpclient2 = HttpClients.custom()
              .setDefaultCredentialsProvider(credsProvider).build();
      try {
 
@@ -43,7 +55,7 @@ function connect(){
 
          System.out.println("Executing request " + httpget.getRequestLine() + " to target " + target);
          for (int i = 0; i < 3; i++) {
-             CloseableHttpResponse response = httpclient.execute(target, httpget, localContext);
+              response = httpclient2.execute(target, httpget, localContext);
              try {
                  System.out.println("----------------------------------------");
                  System.out.println(response.getStatusLine());
@@ -56,10 +68,11 @@ function connect(){
          httpclient.close();
      }
 	%>
+	var resp2 = <%=response.getStatusLine()%>;
 	var resp = <%=response1.getStatusLine().getStatusCode()%>;
 	
 	
-	alert(resp);
+	alert(resp+" "+resp2);
 }
 </script>
 </head>

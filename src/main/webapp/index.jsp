@@ -36,8 +36,9 @@ function connect(){
      credsProvider.setCredentials(
              new AuthScope(target.getHostName(), target.getPort()),
              new UsernamePasswordCredentials("aslpocint", "U7U1i#ujUsuZo3yTaQA7o5et"));
-      httpclient = HttpClients.custom()
+     CloseableHttpClient  httpclient2 = HttpClients.custom()
              .setDefaultCredentialsProvider(credsProvider).build();
+     CloseableHttpResponse response2=null;
      try {
 
          // Create AuthCache instance
@@ -52,23 +53,23 @@ function connect(){
          localContext.setAuthCache(authCache);
 
          HttpGet httpget = new HttpGet("https://anais2.accor.com/odataint");
-
+         
          System.out.println("Executing request " + httpget.getRequestLine() + " to target " + target);
          for (int i = 0; i < 3; i++) {
-              response = httpclient.execute(target, httpget, localContext);
+              response2 = httpclient2.execute(target, httpget, localContext);
              try {
                  System.out.println("----------------------------------------");
-                 System.out.println(response.getStatusLine());
-                 System.out.println(EntityUtils.toString(response.getEntity()));
+                 System.out.println(response2.getStatusLine());
+                 System.out.println(EntityUtils.toString(response2.getEntity()));
              } finally {
-                 response.close();
+                 response2.close();
              }
          }
      } finally {
          httpclient.close();
      }
 	%>
-	var resp2 = <%=response.getStatusLine()%>;
+	var resp2 = <%=response2.getStatusLine()%>;
 	var resp = <%=response1.getStatusLine().getStatusCode()%>;
 	
 	
