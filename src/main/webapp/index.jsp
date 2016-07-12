@@ -21,16 +21,16 @@
 function connect(){
 	alert("test");
 	<%
-// 	CloseableHttpClient httpclient = HttpClients.createDefault();
-// 	HttpGet httpGet = new HttpGet("https://anais2.accor.com/odataint");
-// 	CloseableHttpResponse response1=null;
-// 	try {
-// 		 response1 = httpclient.execute(httpGet);
-// 	} catch (IOException e) {
-// 		// TODO Auto-generated catch block
-// 		System.out.print(e.getMessage());
-// 	}
-// 	System.out.print(response1.getStatusLine().getStatusCode());
+	CloseableHttpClient httpclient = HttpClients.createDefault();
+	HttpGet httpGet = new HttpGet("https://login.salesforce.com");
+	CloseableHttpResponse response1=null;
+	try {
+		 response1 = httpclient.execute(httpGet);
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		System.out.print(e.getMessage());
+	}
+	System.out.print(response1.getStatusLine().getStatusCode());
 	
 	
 // 	 HttpHost target = new HttpHost("anais2.accor.com", 443, "https");
@@ -76,19 +76,19 @@ function connect(){
      
      
      
-     CredentialsProvider provider = new BasicCredentialsProvider();
-     UsernamePasswordCredentials credentials = new UsernamePasswordCredentials("aslint", "EgoryWy@U$yNy2aJU2atUBYQ");
-     provider.setCredentials(AuthScope.ANY, credentials);
-     HttpClient client = HttpClientBuilder.create().setDefaultCredentialsProvider(provider).build();
+//      CredentialsProvider provider = new BasicCredentialsProvider();
+//      UsernamePasswordCredentials credentials = new UsernamePasswordCredentials("aslint", "EgoryWy@U$yNy2aJU2atUBYQ");
+//      provider.setCredentials(AuthScope.ANY, credentials);
+//      HttpClient client = HttpClientBuilder.create().setDefaultCredentialsProvider(provider).build();
      
-     HttpResponse response3 = client.execute(new HttpGet("https://anais2.accor.com/aslint/servicesLayer/users"));
-     int statusCode = response3.getStatusLine().getStatusCode();
+//      HttpResponse response3 = client.execute(new HttpGet("https://anais2.accor.com/aslint/servicesLayer/users"));
+//      int statusCode = response3.getStatusLine().getStatusCode();
      
      
      
 	%>
 <%-- 	var resp2 = <%=response2.getStatusLine()%>; --%>
-<%-- 	var resp = <%=response1.getStatusLine().getStatusCode()%>; --%>
+	var resp = <%=response1.getStatusLine().getStatusCode()%>;
 	
 	
 	alert(resp+" "+resp2);
