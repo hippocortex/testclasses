@@ -9,19 +9,19 @@ function connect(){
 	alert("test");
 	<%
 	CloseableHttpClient httpclient = HttpClients.createDefault();
-	HttpGet httpGet = new HttpGet("https://https://anais1.accor.com/asl");
+	HttpGet httpGet = new HttpGet("https://anais1.accor.com/asl");
 	CloseableHttpResponse response1=null;
 	try {
 		 response1 = httpclient.execute(httpGet);
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
 		System.out.print(e.getMessage());
-	}%>
+	}
+	System.out.print(response1.getStatusLine().getStatusCode());
+	%>
 	var resp = <%=response1.getStatusLine().getStatusCode()%>;
 	
-	<%
-		System.out.print(response1.getStatusLine().getStatusCode());
-	%>
+	
 	alert(resp);
 }
 </script>
