@@ -9,7 +9,7 @@ function connect(){
 	alert("test");
 	<%
 	CloseableHttpClient httpclient = HttpClients.createDefault();
-	HttpGet httpGet = new HttpGet("https://anais1.accor.com/asl");
+	HttpGet httpGet = new HttpGet("https://anais2.accor.com/odataint");
 	CloseableHttpResponse response1=null;
 	try {
 		 response1 = httpclient.execute(httpGet);
