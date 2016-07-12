@@ -35,7 +35,7 @@ function connect(){
      CredentialsProvider credsProvider = new BasicCredentialsProvider();
      credsProvider.setCredentials(
              new AuthScope(target.getHostName(), target.getPort()),
-             new UsernamePasswordCredentials("aslpocint", "U7U1i#ujUsuZo3yTaQA7o5et"));
+             new UsernamePasswordCredentials("aslint", "EgoryWy@U$yNy2aJU2atUBYQ"));
      CloseableHttpClient  httpclient2 = HttpClients.custom()
              .setDefaultCredentialsProvider(credsProvider).build();
      CloseableHttpResponse response2=null;
@@ -52,7 +52,7 @@ function connect(){
          HttpClientContext localContext = HttpClientContext.create();
          localContext.setAuthCache(authCache);
 
-         HttpGet httpget = new HttpGet("https://anais2.accor.com/odataint");
+         HttpGet httpget = new HttpGet("https://anais2.accor.com/aslint");
          
          System.out.println("Executing request " + httpget.getRequestLine() + " to target " + target);
          for (int i = 0; i < 3; i++) {
